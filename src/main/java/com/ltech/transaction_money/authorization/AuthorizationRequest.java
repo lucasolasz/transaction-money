@@ -14,7 +14,7 @@ public record AuthorizationRequest(
     }
 
     public AuthorizationRequest generateInterBody() {
-        Params params = new Params("64680eaa-5a9b-4f40-b250-82c89b78a2d2", 1, 0, 1);
+        Params params = new Params("${API_KEY}", 1, 0, 1);
         return new AuthorizationRequest("2.0", "generateIntegers", params, 1);
     }
 }

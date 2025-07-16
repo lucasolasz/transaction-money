@@ -3,8 +3,8 @@ package com.ltech.transaction_money.authorization;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import com.ltech.transaction_money.authorization.AuthorizationRequest.Params;
 import com.ltech.transaction_money.transaction.Transaction;
+import com.ltech.transaction_money.transaction.UnauthorizedTransactionException;
 
 @Service
 public class AuthorizerService {
@@ -19,11 +19,8 @@ public class AuthorizerService {
 
     public void authorizeTransaction(Transaction transaction) {
 
-        Params params = new Params("64680eaa-5a9b-4f40-b250-82c89b78a2d2", 1, 0, 1);
-        AuthorizationRequest requestBody = new AuthorizationRequest("2.0", "generateIntegers", params, 1);
-
         var response = restClient.post()
-                .body(requestBody)
+                .body(new AuthorizationRequest().generateInterBody())
                 .retrieve()
                 .toEntity(AuthorizationResponse.class);
 
