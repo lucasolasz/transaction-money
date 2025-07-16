@@ -1,6 +1,5 @@
 package com.ltech.transaction_money.authorization;
 
-import org.springframework.http.client.JdkClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -14,7 +13,6 @@ public class AuthorizerService {
 
     public AuthorizerService(RestClient.Builder builder) {
         this.restClient = builder
-                .requestFactory(new JdkClientHttpRequestFactory())
                 .baseUrl("https://api.random.org/json-rpc/4/invoke")
                 .build();
     }
