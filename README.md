@@ -123,8 +123,6 @@ The application exposes the following REST endpoints:
       "payee": 2
    }
   ```
-- **GET /api/transactions/{id}**: Retrieve transaction details by ID.
-- **GET /api/wallets/{id}/balance**: Check the balance of a wallet.
 
 ## Kafka Integration
 The application uses Kafka to send transaction notifications:
